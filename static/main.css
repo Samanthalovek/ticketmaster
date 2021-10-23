@@ -1,0 +1,333 @@
+body, *{
+    padding: 0;
+    margin: 0;
+}
+
+#header{
+    width: 100%;
+    background-color: #18181b;
+}
+
+#myVideo {
+    width: 100%;
+    height: 200px;
+}
+
+#menu{
+    width: 100%;
+    height: 40px;
+    background-color: #3E3E69;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.tab{
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    height: auto;
+    font-size: 1.2em;
+    color: #f3f3f3; 
+    padding-top: 8px;
+    padding-left: 3px;
+    width: 100%;
+}
+
+.login{
+   background-color: #ebc20c; 
+   color: #18181b;
+   font-weight: bold;
+   text-align: center;
+}
+
+.tab:hover{
+    background-color: #54548f;
+    cursor: pointer;
+}
+
+.login:hover{
+    background-color: #ffd000; 
+    cursor: pointer;
+}
+
+#container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#content{
+    margin-top: 40px;
+    width: 60%;
+    height: auto;
+}
+
+.event{
+    height: 135px;
+    width: 100%;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 4px 6px 18px -3px rgba(0,0,0,0.36); 
+    box-shadow: 4px 6px 18px -3px rgba(0,0,0,0.36);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.name{
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #3E3E69;
+    font-size: 1.4em;
+}
+
+.name:hover{
+    cursor: pointer;
+}
+
+.eventContent{
+    width: 72%;
+    padding: 0.5em 1em;
+}
+
+.image{
+    width: 28%;
+    display: flex;
+    align-content: flex-end;
+}
+
+.image img{
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.line{
+    background-color: #dbdbdb;
+    height: 1px;
+    border-radius: 10px;
+}
+
+.eventData{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.date{
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    margin-top: 2px;
+    color: #a3a3a3;
+}
+
+.description{
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #a3a3a3;
+    font-size: 0.9em;
+    text-align: justify;
+    margin-top: 6px;
+}
+
+.event_title{
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #3E3E69;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.event_content{
+    padding-left: 80px;
+    display: flex;
+    flex-direction: row;
+}
+
+.event_image{
+    zoom: 185%;
+    max-width: 400px;
+    max-height: 250px;
+}
+
+.event_description{
+    max-width: 800px;
+    text-align: justify;
+}
+
+.left_panel{
+    padding-top: 20px;
+}
+
+.right_panel{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 100px;
+    background-color: #f0f0f0;
+    height: 94.5vh;
+    -webkit-box-shadow: 0px 0px 18px -3px rgba(0,0,0,0.36); 
+    box-shadow: 0px 0px 18px -3px rgba(0,0,0,0.36);
+}
+
+.buy{
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    padding: 2em;
+    margin-top: 3em;
+}
+
+.book{
+    width: 200px;
+    font-size: 2em;
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    padding: 1em 0.5em;
+    background-color: #ebc20c;
+    border: 0px;
+    color: #f3f3f3;
+    font-weight: bold;
+    -webkit-box-shadow: 4px 6px 18px -3px rgba(0,0,0,0.36); 
+    box-shadow: 4px 6px 18px -3px rgba(0,0,0,0.36);
+    border-radius: 2px;
+    transition: transform .7s ease-in-out;
+}
+
+.modal_background, .modal_register_background{
+    position: absolute; 
+    z-index: 3; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(0,0,0,0.5); 
+    color: White;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    display: none;
+}
+
+.modal{
+    height: 52vh;
+    width: 35vw;
+    margin-top: 7vh;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 6px 18px -3px rgba(0,0,0,0.36); 
+    box-shadow: 4px 6px 18px -3px rgba(0,0,0,0.36);
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.top-right {
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 1.6em;
+    position: absolute;
+    top: 0px;
+    right: 4px;
+    transition: transform .7s ease-in-out;
+}
+
+.top-right:hover{
+    cursor: pointer;
+    transform: rotate(30deg);
+}
+  
+.modal_logo{
+    max-width: 100%;
+}
+
+.modal_content{
+    padding: 2em;
+}
+
+.modal_label{
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #3d3d3d;
+}
+
+.modal_input {
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    padding: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-width: 1px;
+    background-color: #f3f3f3;
+    color: #54548f;
+    border-style: hidden;
+    border-radius: 0px;
+    box-shadow: 0px 0px 5px rgba(66,66,66,.0);
+    border-bottom: solid 1px;
+    width: 95%;
+}
+
+.modal_input:focus {
+    outline:none;
+}
+
+.btn_container{
+    display: flex;
+    justify-content: center;
+}
+
+.login_btn{
+    width: 200px;
+    font-size: 1em;
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    padding: 1em 0.5em;
+    background-color: #ebc20c;
+    border: 0px;
+    color: #f3f3f3;
+    font-weight: bold;
+    -webkit-box-shadow: 4px 6px 18px -3px rgba(0,0,0,0.36); 
+    box-shadow: 4px 6px 18px -3px rgba(0,0,0,0.36);
+    border-radius: 2px;
+    transition: transform .7s ease-in-out;
+}
+
+.login_btn:hover, .book:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.text_reg{
+    color: #54548f;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.text_reg:hover{
+    cursor: pointer;
+}
+
+.price{
+    padding-top: 1em;
+    color: #54548f;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#modal_buy{
+    height: fit-content;
+}
+
+#tickets_header{
+    width: 100%;
+    padding-top: 2em;
+    text-align: center;
+}
+
+#tickets_header h2{
+    font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 1.8em;
+    color: #54548f;
+}

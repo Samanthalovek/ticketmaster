@@ -1,0 +1,70 @@
+<div class="modal_background" id="modal_background_buy">
+    <div class="modal" id="modal_buy">
+        <div class="container">
+            <img class="modal_logo" src="{{ url_for('static', filename='logo.jpg') }}" alt="">
+            <div class="top-right" id="close">x</div>
+        </div>
+        <div class="modal_content">
+            <h4 style="color:#3d3d3d; text-align: center; font-size: 1.4em; font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;">Reserva tus boletos para el evento:</h4><br>
+            <div class="event">
+                <div class="eventContent">
+                    <h4 class="name">Pink Floyd World Tour</h4>
+                    <div class="line"></div>
+                    <div class="eventData">
+                        <p class="data" style="color:#3d3d3d">OCT 24 - 17:00 hrs.</p>
+                        <p class="data" style="color:#3d3d3d">México, Monterrey N.L.</p>
+                    </div>
+                    <h4 class="price">$1500</h4>
+                </div>
+                <div class="image">
+                    <img src="{{ url_for('static', filename='pink.jpg') }}" alt="">
+                </div>
+            </div>
+            <form action="" method="post">
+                <label for="namecard" class="modal_label" style="font-size: 1.2em;">Nombre en la tarjeta</label><br>
+                <input id="namecard" class="modal_input"><br><br>
+                <label for="cardnumber" class="modal_label" style="font-size: 1.2em;">Número de Tarjeta</label><br>
+                <input id="cardnumber" pattern="[0-9]*" inputmode="numeric" class="modal_input" maxlength="19"><br><br>
+                <div style="display: flex; flex-direction: row;">
+                    <div>
+                        <label for="expdate" class="modal_label" style="font-size: 1.2em;">Fecha de Expiración</label><br>
+                        <input type="text" name="expdate" id="expdate"class="modal_input" maxlength="5"><br><br>        
+                    </div>
+                    <div>
+                        <label for="cvv" class="modal_label" style="font-size: 1.2em;">CVV</label><br>
+                        <input type="password" name="cvv" id="cvv"class="modal_input" style="width: 91%;" maxlength="3"><br><br>
+                    </div>
+                </div> 
+            </form>
+            <div class="btn_container">
+                <button  class="login_btn" onclick="location.href = '/tickets'">Reservar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    document.getElementById("cardnumber").addEventListener("keyup", function(){  
+        if(!(new RegExp("^[0-9]$")).test(this.value.substr(this.value.length - 1)))
+            this.value = this.value.substring(0, this.value.length - 1);
+        if(this.value.replace(/ /g, "").length  % 4 == 0 && this.value.length!=0 && this.value.length<16)
+            this.value += " ";
+    });
+    document.getElementById("login").addEventListener("click", function(){
+        document.getElementsByClassName("modal_background")[0].style.display = "flex";
+    });
+    document.getElementsByClassName("top-right")[0].addEventListener("click", function(){
+        document.getElementsByClassName("modal_background")[0].style.display = "none";
+    });
+    document.getElementsByClassName("book")[0].addEventListener("click", function(){
+        document.getElementById("modal_background_buy").style.display = "flex";
+    });
+    document.getElementById("close").addEventListener("click", function(){
+        document.getElementById("modal_background_buy").style.display = "none";
+    });
+    document.getElementById("expdate").addEventListener("keyup", function(){   
+        if(!(new RegExp("^[0-9]$")).test(this.value.substr(this.value.length - 1)))
+            this.value = this.value.substring(0, this.value.length - 1);
+        if(this.value.replace("/", "").length  % 2 == 0 && this.value.length!=0 && this.value.length<4)
+            this.value += "/";
+    });
+</script>

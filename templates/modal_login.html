@@ -1,0 +1,28 @@
+<div class="modal_background">
+    <div class="modal">
+        <div class="container">
+            <img class="modal_logo" src="{{ url_for('static', filename='logo.jpg') }}" alt="">
+            <div class="top-right">x</div>
+        </div>
+        <div class="modal_content">
+            <form action="" method="post">
+                <label for="usuario" class="modal_label">Usuario</label><br>
+                <input type="text" name="usuario" id="usuario" class="modal_input"><br>
+                <label for="password" class="modal_label">Contraseña</label><br>
+                <input type="password" name="password" id="password"class="modal_input" ><br><br>
+                <div class="btn_container">
+                    <input type="submit" value="Iniciar Sesión" class="login_btn">
+                </div>
+            </form>
+        </div>
+        <p class="text_reg">registrate aquí...</p>
+    </div>
+</div>
+<script type="text/javascript">
+    document.getElementById("login").addEventListener("click", function(){
+        document.getElementsByClassName("modal_background")[0].style.display = "flex";
+    });
+    document.getElementsByClassName("top-right")[0].addEventListener("click", function(){
+        document.getElementsByClassName("modal_background")[0].style.display = "none";
+    });
+</script>
