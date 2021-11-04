@@ -211,7 +211,8 @@ body, *{
 }
 
 .modal{
-    height: 52vh;
+    /*height: 52vh;*/
+    height: fit-content;
     width: 35vw;
     margin-top: 7vh;
     background-color: #f3f3f3;
@@ -314,10 +315,6 @@ body, *{
     color: #54548f;
     font-size: 1.5em;
     text-align: center;
-}
-
-#modal_buy{
-    height: fit-content;
 }
 
 #tickets_header{

@@ -1,5 +1,5 @@
 <div class="modal_register_background">
-    <div class="modal" style="height: 60vh;">
+    <div class="modal">
         <div class="container">
             <img class="modal_logo" src="{{ url_for('static', filename='logo.jpg') }}" alt="">
             <div class="top-right" id="x_reg">x</div>
@@ -9,13 +9,15 @@
                 <div style="display: flex; flex-direction: row;">
                     <div>
                         <label for="nombre" class="modal_label" style="font-size: 1.2em;">Nombre</label><br>
-                        <input type="text" name="usuario" id="usuario" class="modal_input" style="width: 80%;"><br>
+                        <input type="text" name="nombre" id="nombre" class="modal_input" style="width: 80%;"><br>
                     </div>
                     <div>
                         <label for="apellidos" class="modal_label" style="font-size: 1.2em;">Apellidos</label><br>
                         <input type="text" name="apellidos" id="apellidos"class="modal_input" style="width: 80%;"><br><br>
                     </div>
                 </div>
+                <label for="usuario" class="modal_label" style="font-size: 1.2em;">Nombre de usuario</label><br>
+                <input type="text" name="usuario" id="usuario" class="modal_input" style="width: 80%;"><br><br>
                 <label for="email" class="modal_label" style="font-size: 1.2em;">Correo Electrónico</label><br>
                 <input type="email" name="email" id="email" class="modal_input" style="width: 90%;"><br><br>
                 <div style="display: flex; flex-direction: row;">
