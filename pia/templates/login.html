@@ -1,0 +1,55 @@
+{% include 'header.html' %}
+<body>
+<div id="header">
+    <video autoplay muted loop id="myVideo">
+        <source src="{{ url_for('static', filename='sports.mp4') }}" type="video/mp4">
+    </video>
+</div>
+{% include 'menu.html' %}
+{% include 'message.html' %}
+    <div id="container">
+        <div id="content">
+            <div class="modal" >
+            <div class="container">
+                <img class="modal_logo" src="{{ url_for('static', filename='logo.jpg') }}" alt="">
+                <div class="top-right" onclick="location.href = '/'">x</div>
+            </div>
+            <div class="modal_content">
+                <form action="" method="POST">
+                    {{ form.hidden_tag() }}
+
+                    {{ form.username.label(class="modal_label") }}
+                    {% if form.username.errors %}
+                        {{ form.username(class="modal_input", id="usuario") }} <br>
+                        <div>
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="modal_input", id="usuario") }} <br>
+                    {% endif %}
+
+                    {{ form.password.label(class="modal_label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="modal_input", id="password") }} <br> <br>
+                        <div>
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="modal_input", id="password") }} <br> <br>
+                    {% endif %}
+                    <div class="btn_container">
+                        {{ form.submit(class="login_btn") }}
+                    </div>
+                </form>
+            </div>
+            <p class="text_reg" onclick="location.href = '/register'">registrate aquí...</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

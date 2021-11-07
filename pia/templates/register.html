@@ -1,0 +1,84 @@
+{% include 'header.html' %}
+<body>
+<div id="header">
+    <video autoplay muted loop id="myVideo">
+        <source src="{{ url_for('static', filename='sports.mp4') }}" type="video/mp4">
+    </video>
+</div>
+{% include 'menu.html' %}
+{% include 'message.html' %}
+    <div id="container">
+        <div id="content">
+          <div class="modal">
+            <div class="container">
+                <img class="modal_logo" src="{{ url_for('static', filename='logo.jpg') }}" alt="">
+                <div class="top-right" id="x_reg" onclick="location.href = '/'">x</div>
+            </div>
+            <div class="modal_content">
+                <form action="" method="post" style="margin-left: 2em;">
+                    {{ form.hidden_tag() }}
+                    <div style="display: flex; flex-direction: row;">
+                        <div>
+                            {{ form.names.label(class="modal_label", style="font-size: 1.2rem") }} <br>
+                            {{ form.names(class="modal_input", id="nombre", style="width: 80%") }} <br>
+                        </div>
+                        <div>
+                            {{ form.family_names.label(class="modal_label", style="font-size: 1.2rem") }} <br>
+                            {{ form.family_names(class="modal_input", id="apellidos", style="width: 80%") }} <br> <br>
+                        </div>
+                    </div>
+
+                    {{ form.username.label(class="modal_label", style="font-size: 1.2rem") }} <br>
+                    {% if form.username.errors %}
+                        {{ form.username(class="modal_input", id="usuario", style="width: 80%") }} <br><br>
+                        <div>
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="modal_input", id="usuario", style="width: 80%") }} <br><br>
+                    {% endif %}
+
+                    {{ form.email.label(class="modal_label", style="font-size: 1.2rem") }} <br>
+                    {% if form.email.errors %}
+                        {{ form.email(class="modal_input", id="email", style="width: 80%") }} <br><br>
+                        <div>
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="modal_input", id="email", style="width: 80%") }} <br><br>
+                    {% endif %}
+
+                    <div style="display: flex; flex-direction: row;">
+                        <div>
+                            {{ form.password.label(class="modal_label", style="font-size: 1.2rem") }} <br>
+                            {{ form.password(class="modal_input", id="password", style="width: 80%") }} <br>
+                        </div>
+                        <div>
+                            {{ form.confirm_password.label(class="modal_label", style="font-size: 1.2rem") }} <br>
+                            {% if form.confirm_password.errors %}
+                                {{ form.confirm_password(class="modal_input error", id="password2", style="width: 80%") }} <br><br>
+                                <div>
+                                    {% for error in form.confirm_password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.confirm_password(class="modal_input", id="password2", style="width: 80%") }} <br><br>
+                            {% endif %}
+                        </div>
+                    </div><br>
+                    <div class="btn_container">
+                        {{ form.submit(class="login_btn") }}
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
