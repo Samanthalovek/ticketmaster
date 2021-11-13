@@ -6,7 +6,7 @@ from sqlalchemy.ext.automap import automap_base
 app = Flask(__name__)
 
 # Database connection
-server = "nombre del servidor"
+server = "LAPTOP-9ALLDM6U\SQLEXPRESS"
 database = "PIA"
 driver = "ODBC+Driver+17+for+SQL+Server"
 database_conn = f"mssql+pyodbc://@{server}/{database}?driver={driver}"

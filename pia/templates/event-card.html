@@ -1,0 +1,22 @@
+<div class="event">
+    <div class="eventContent">
+        <h4 class="name">
+            <a href="{{ url_for('event', id=event.iIdEvento) }}"
+                >{{ event.vNombEven }}
+            </a>
+        </h4>
+        <div class="line"></div>
+        <div class="eventData">
+            <p class="data">{{ event.dFecha.strftime("%b %d - %H:%M hrs.") }}</p>
+            <p class="data">{{ get_place(event.iIdLugar) }}</p>
+        </div>
+        <div class="description">
+            <p>
+                {{ event.vDescripcion }}
+            </p>
+        </div>
+    </div>
+    <div class="image">
+        <img src="{{ url_for('static', filename=set_image(event.iIdEvento)) }}" alt="img" />
+    </div>
+</div>

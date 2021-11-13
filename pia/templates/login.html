@@ -1,17 +1,19 @@
-{% include 'header.html' %}
-<body>
+{% extends "layout.html" %}
+
+{% block header %}
 <div id="header">
     <video autoplay muted loop id="myVideo">
-        <source src="{{ url_for('static', filename='sports.mp4') }}" type="video/mp4">
+        <source src="{{ url_for('static', filename='video/bg.mp4') }}" type="video/mp4">
     </video>
 </div>
-{% include 'menu.html' %}
-{% include 'message.html' %}
+{% endblock header %}
+
+{% block content %}
     <div id="container">
-        <div id="content">
+        <div class="wrapper" id="content">
             <div class="modal" >
             <div class="container">
-                <img class="modal_logo" src="{{ url_for('static', filename='logo.jpg') }}" alt="">
+                <img class="modal_logo" src="{{ url_for('static', filename='img/logo.jpg') }}" alt="">
                 <div class="top-right" onclick="location.href = '/'">x</div>
             </div>
             <div class="modal_content">
@@ -51,5 +53,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+{% endblock content %}

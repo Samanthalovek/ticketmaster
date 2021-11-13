@@ -1,71 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='{{url_for("static", filename="main.css")}}'>
-    <title>Ticket Master</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block header %}
 <div id="header">
     <video autoplay muted loop id="myVideo">
-        <source src="{{ url_for('static', filename='bg.mp4') }}" type="video/mp4">
+        <source src="{{ url_for('static', filename=video) }}" type="video/mp4">
     </video>
 </div>
-{% include 'menu.html' %}
-{% include 'message.html' %}
+{% endblock header %}
+
+{% block content %}
 <div id="container">
     <div id="content">
-        <div class="event">
-            <div class="eventContent">
-                <h4 class="name" onclick="location.href = '/event'">Pink Floyd World Tour</h4>
-                <div class="line"></div>
-                <div class="eventData">
-                    <p class="data">OCT 24 - 17:00 hrs.</p>
-                    <p class="data">México, Monterrey N.L.</p>
-                </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut lectus non est aliquet porttitor sit amet ac justo. Donec ac ex turpis. Proin hendrerit tempor porta. Suspendisse vehicula tortor a metus feugiat aliquam. Nullam sit amet convallis quam, vitae viverra neque. Nulla facilisi. Nulla purus nisl, rutrum vitae posuere ac, vehicula varius nisi...</p>
-                </div>
-            </div>
-            <div class="image">
-                <img src="{{ url_for('static', filename='pink.jpg') }}" alt="">
-            </div>
-        </div>
-        <div class="event">
-            <div class="eventContent">
-                <h4 class="name" onclick="location.href = '/event'">Tigres VS Rayados</h4>
-                <div class="line"></div>
-                <div class="eventData">
-                    <p class="data">NOV 10 - 18:00 hrs.</p>
-                    <p class="data">México, Monterrey N.L.</p>
-                </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut lectus non est aliquet porttitor sit amet ac justo. Donec ac ex turpis. Proin hendrerit tempor porta. Suspendisse vehicula tortor a metus feugiat aliquam. Nullam sit amet convallis quam, vitae viverra neque. Nulla facilisi. Nulla purus nisl, rutrum vitae posuere ac, vehicula varius nisi...</p>
-                </div>
-            </div>
-            <div class="image">
-                <img src="{{ url_for('static', filename='futbol.jpg') }}" alt="">
-            </div>
-        </div>
-        <div class="event">
-            <div class="eventContent">
-                <h4 class="name" onclick="location.href = '/event'">Andrea Bocelli</h4>
-                <div class="line"></div>
-                <div class="eventData">
-                    <p class="data">DIC 24 - 18:00 hrs.</p>
-                    <p class="data">México, Monterrey N.L.</p>
-                </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut lectus non est aliquet porttitor sit amet ac justo. Donec ac ex turpis. Proin hendrerit tempor porta. Suspendisse vehicula tortor a metus feugiat aliquam. Nullam sit amet convallis quam, vitae viverra neque. Nulla facilisi. Nulla purus nisl, rutrum vitae posuere ac, vehicula varius nisi.</p>
-                </div>
-            </div>
-            <div class="image">
-                <img src="{{ url_for('static', filename='art.jpg') }}" alt="">
-            </div>
-        </div>
+        {% if events %}
+            {% for event in events %}
+                {% include "event-card.html" %}
+            {% endfor %}
+        {% endif %}
     </div>
 </div>
-</body>
-</html>
+{% endblock content %}

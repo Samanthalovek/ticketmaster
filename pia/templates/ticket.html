@@ -1,0 +1,17 @@
+<div class="event">
+    <div class="eventContent" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+            <h4 class="name"><a href="{{ url_for("event", id=event.iIdEvento) }}">{{ event.vNombEven }}</a></h4>
+            <div class="line"></div>
+        </div>
+        <h2 class="data" style="font-size: 1.4em; color:#545455; text-align: center;">Boletos disponibles:</h2>
+        <h2 class="data" style="font-size: 1.4em; color:#545455; text-align: center;">{{ tickets[event.iIdEvento] }}</h2>
+        <div class="eventData">
+            <p class="data" style="font-size: 1.2em;">{{ event.dFecha.strftime("%b %d - %H:%M hrs.") }}</p>
+            <p class="data" style="font-size: 1.2em;">{{ get_place(event.iIdLugar) }}</p>
+        </div>
+    </div>
+    <div class="image">
+        <img src="{{ url_for('static', filename=set_image(event.iIdEvento)) }}" alt="">
+    </div>
+</div>

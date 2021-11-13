@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block header %}
+<div id="header">
+    <video autoplay muted loop id="myVideo">
+        <source
+            src="{{ url_for('static', filename='video/bg.mp4') }}"
+            type="video/mp4"
+        />
+    </video>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="modal">
+        <div class="container">
+            <img
+                class="modal_logo"
+                src="{{ url_for('static', filename='logo.jpg') }}"
+                alt=""
+            />
+        </div>
+        <div class="modal_content">
+            <h4
+                style="
+                    color: #3d3d3d;
+                    text-align: center;
+                    font-size: 1.4em;
+                    font-family: Averta, Helvetica Neue, Helvetica, Arial,
+                        sans-serif;
+                "
+            >
+                Reserva tus boletos para el evento:
+            </h4>
+            <br />
+            <div class="event">
+                <div class="eventContent">
+                    <h4 class="name">{{ event.vNombEven }}</h4>
+                    <div class="line"></div>
+                    <div class="eventData details">
+                        <p class="data" style="color: #3d3d3d">
+                            {{ event.dFecha.strftime("%b %d - %H:%M hrs.") }}
+                        </p>
+                        <p class="data" style="color: #3d3d3d">
+                            {{ get_place(event.iIdLugar) }}
+                        </p>
+                    </div>
+                    <h4 class="price">${{ event.iPrecio }}</h4>
+                </div>
+                <div class="image">
+                    <img
+                        src="{{ url_for('static', filename=file_path(event.iIdEvento)) }}"
+                        alt=""
+                    />
+                </div>
+            </div>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                {{ form.card_name.label(class="modal_label", style="font-size: 1.2rem") }} <br>
+                {{ form.card_name(class="modal_input", id="namecard", style="font-size: 1.2em%") }} <br><br>
+                
+                {{ form.card_number.label(class="modal_label", style="font-size: 1.2rem") }} <br>
+                {{ form.card_number(class="modal_input", id="cardnumber", style="font-size: 1.2em%", pattern="[0-9]*") }} <br><br>
+
+                <div style="display: flex; flex-direction: row">
+                    <div>
+                        {{ form.expiration_date.label(class="modal_label", style="font-size: 1.2rem") }} <br>
+                        {{ form.expiration_date(class="modal_input", id="expdate", style="font-size: 1.2em%") }} <br><br>
+                    </div>
+                    <div>
+                        {{ form.cvv.label(class="modal_label", style="font-size: 1.2rem") }} <br>
+                        {{ form.cvv(class="modal_input", id="cvv", style="font-size: 1.2em%") }} <br><br>
+                    </div>
+                </div>
+                <div class="btn_container justify-evenly">
+                    <input
+                        class="login_btn"
+                        type="button"
+                        value="Cancelar"
+                        onclick="history.back(-1)"
+                    />
+                    {{ form.submit(class="login_btn") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

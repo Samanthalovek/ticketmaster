@@ -137,7 +137,7 @@ body, *{
 .event_content{
     padding-left: 80px;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
 }
 
 .event_image{
@@ -153,6 +153,7 @@ body, *{
 
 .left_panel{
     padding-top: 20px;
+    width: 70%;
 }
 
 .right_panel{
@@ -160,7 +161,7 @@ body, *{
     align-items: center;
     justify-content: start;
     flex-direction: column;
-    width: 100%;
+    width: 50vw;
     margin-left: 100px;
     background-color: #f0f0f0;
     height: 94.5vh;
@@ -327,4 +328,32 @@ body, *{
     font-family: Averta,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-size: 1.8em;
     color: #54548f;
+}
+
+h4 a {
+    display: block;
+    width: 100%;
+    color: unset;
+    text-decoration: none;
+}
+
+.wrapper {
+    display:flex;
+    justify-content: center;
+}
+
+.modal {
+    margin-bottom: 14vh;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.eventData{
+    font-size: 1.2em;
+}
+
+.data-event{
+    margin-right: 2rem;
 }

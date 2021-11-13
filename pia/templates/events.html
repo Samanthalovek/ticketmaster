@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block header %}
+<div id="header">
+    <video autoplay muted loop id="myVideo">
+        <source
+            src="{{ url_for('static', filename='video/bg.mp4') }}"
+            type="video/mp4"
+        />
+    </video>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="event_content">
+    <div class="left_panel">
+        <h1 class="event_title">{{ event.vNombEven }}</h1>
+        <div class="line"></div>
+        <br />
+        <img
+            src="{{ url_for('static', filename=filename) }}"
+            alt="evento"
+            class="event_image"
+        />
+        <div class="eventData">
+            <p class="data data-event">
+                {{ event.dFecha.strftime("%b %d - %H:%M hrs.") }}
+            </p>
+            <p class="data data-event">{{ get_place(event.iIdLugar) }}</p>
+        </div>
+        <div class="line"></div>
+        <br />
+        <div class="event_description">
+            <p>{{ event.vDescripcion }}</p>
+        </div>
+    </div>
+    <div class="right_panel">
+        {% if event.iCantBole > 0%}
+        <h2 class="buy">¡Aparta tus boletos antes de que se agoten!</h2>
+        <br />
+        <a href="{{ url_for('buy', id=event.iIdEvento) }}"
+            ><button class="book">Reservar</button></a
+        >
+        {% else %}
+        <h2 class="buy">¡No quedan boletos disponibles!</h2>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

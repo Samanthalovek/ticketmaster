@@ -1,12 +1,13 @@
 <div id="menu">
     <div class="tab" onclick="location.href = '/'" style="display: flex; flex-direction: row;">
-        <img src="{{ url_for('static', filename='home.png') }}" alt="home" style="height: 30px; width: 30px; margin-left: 50px; margin-top: -5px;">
+        <img src="{{ url_for('static', filename='img/home.png') }}" alt="home" style="height: 30px; width: 30px; margin-left: 50px; margin-top: -5px;">
         <p style="margin-left: 20px;">Inicio</p>
     </div>
     <div class="tab" onclick="location.href = '/concerts'">Conciertos</div>
     <div class="tab" onclick="location.href = '/sports'">Deportes</div>
     <div class="tab" onclick="location.href = '/arts'">Arte y Teatro</div>
     {% if current_user.is_authenticated %}
+        <div class="tab" onclick="location.href = '/tickets'">Boletos</div>
         <div class="tab login" onclick="location.href = '/logout'">Cerrar sesión</div>
     {% else %}
         <div class="tab login" onclick="location.href = '/login'" id="login">Login</div>
